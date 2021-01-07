@@ -1,5 +1,5 @@
 {
-    "name": "throttlestudio/laravel-activity-stream",
+    "name": "throttlestudio/activity-stream",
     "description": "Activity stream for Laravel applications",
     "keywords": [
         "throttle-studio",
@@ -12,7 +12,7 @@
         "notifications",
         "follow"
     ],
-    "homepage": "https://github.com/sicsol/laravel-activity-stream",
+    "homepage": "https://github.com/throttlestudio/activity-stream",
     "license": "MIT",
     "type": "library",
     "authors": [
