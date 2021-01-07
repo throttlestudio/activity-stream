@@ -1,0 +1,61 @@
+{
+    "name": "throttlestudio/laravel-activity-stream",
+    "description": "Activity stream for Laravel applications",
+    "keywords": [
+        "throttle-studio",
+        "throttlestudio",
+        "laravel-activity-stream",
+        "laravel",
+        "activity stream",
+        "newsfeed",
+        "timeline",
+        "notifications",
+        "follow"
+    ],
+    "homepage": "https://github.com/sicsol/laravel-activity-stream",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "David Mamber",
+            "email": "sicsol@streetconcepts.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ThrottleStudio\\LaravelActivityStream\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ThrottleStudio\\LaravelActivityStream\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit tests",
+        "test-coverage": "vendor/bin/phpunit tests --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ThrottleStudio\\LaravelActivityStream\\LaravelActivityStreamServiceProvider"
+            ],
+            "aliases": {
+                "LaravelActivityStream": "ThrottleStudio\\LaravelActivityStream\\LaravelActivityStreamFacade"
+            }
+        }
+    }
+}
