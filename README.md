@@ -8,7 +8,7 @@
 
 ![Activity Stream for Laravel](https://dev.getactivitystream.com/activity-stream-logo-color.svg)
 
-Activity stream package for Laravel applications. We support Flat, Timeline, Notification and global Feeds. This will also include the ability to follow Entities. Once an entity is followed or unfollowed activities will be added/removed from timelines. Visit[getactivitystream.com](https://getactivitystream.com) for more information and documentation.
+Activity stream package for Laravel applications. We support Flat, Timeline, Notification and global Feeds. This will also include the ability to follow Entities. Once an entity is followed or unfollowed activities will be added/removed from timelines. Visit [getactivitystream.com](https://getactivitystream.com) for more information and documentation.
 
 ## Installation
 
