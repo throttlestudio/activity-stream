@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use ThrottleStudio\ActivityStream\Models\CustomFeed;
+
+class DummyClass extends CustomFeed
+{
+    public $id = "ID";
+}
