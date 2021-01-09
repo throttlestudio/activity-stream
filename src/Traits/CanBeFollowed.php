@@ -8,7 +8,7 @@ use ThrottleStudio\ActivityStream\Models\Follow;
 trait CanBeFollowed
 {
     /**
-     * Check if entity is being followed by another entity
+     * Check if entity is being followed by another entity.
      *
      * @var \Illumiate\Database\Eloquent\Model
      *
@@ -16,14 +16,14 @@ trait CanBeFollowed
      */
     public function isFollowedBy(Model $model)
     {
-        return !!$this->followers()
+        return (bool) $this->followers()
             ->where('follower_id', $model->getKey())
             ->where('follower_type', $model->getMorphClass())
             ->count();
     }
 
     /**
-     * Get all entities following you
+     * Get all entities following you.
      */
     public function followers()
     {
@@ -31,7 +31,7 @@ trait CanBeFollowed
     }
 
     /**
-     * Get count of followers
+     * Get count of followers.
      */
     public function getFollowersCountAttribute()
     {

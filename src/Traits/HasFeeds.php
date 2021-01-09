@@ -2,15 +2,14 @@
 
 namespace ThrottleStudio\ActivityStream\Traits;
 
-
-use ThrottleStudio\ActivityStream\Models\Feed;
-use ThrottleStudio\ActivityStream\Enums\FeedTypes;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use ThrottleStudio\ActivityStream\Enums\FeedTypes;
+use ThrottleStudio\ActivityStream\Models\Feed;
 
 trait HasFeeds
 {
     /**
-     * Relationship collection of all items in flat feed
+     * Relationship collection of all items in flat feed.
      *
      * @return \ThrottleStudio\ActivityStream\Models\Feed
      */
@@ -20,7 +19,7 @@ trait HasFeeds
     }
 
     /**
-     * Returns data scoped to flat feed only
+     * Returns data scoped to flat feed only.
      */
     public function scopeFlatFeed($query)
     {
@@ -28,9 +27,9 @@ trait HasFeeds
     }
 
     /**
-     * Return a paginated flat feed
+     * Return a paginated flat feed.
      *
-     * @var int|null $pagination
+     * @var int|null
      */
     public function getFlatFeed(int $pagination = null)
     {
@@ -38,7 +37,7 @@ trait HasFeeds
     }
 
     /**
-     * Returns data scoped to flat feed only
+     * Returns data scoped to flat feed only.
      */
     public function scopeTimeline($query)
     {
@@ -46,9 +45,9 @@ trait HasFeeds
     }
 
     /**
-     * Return a paginated timeline
+     * Return a paginated timeline.
      *
-     * @var int|null $pagination
+     * @var int|null
      */
     public function getTimeline(int $pagination = null)
     {
@@ -56,7 +55,7 @@ trait HasFeeds
     }
 
     /**
-     * Returns data scoped to flat feed only
+     * Returns data scoped to flat feed only.
      */
     public function scopeNotifications($query)
     {
@@ -64,9 +63,9 @@ trait HasFeeds
     }
 
     /**
-     * Return a paginated notifications
+     * Return a paginated notifications.
      *
-     * @var int|null $pagination
+     * @var int|null
      */
     public function getNotifications(int $pagination = null)
     {
@@ -74,10 +73,10 @@ trait HasFeeds
     }
 
     /**
-     * Returns a paginated flat feed in decending order
+     * Returns a paginated flat feed in decending order.
      *
-     * @var oneof \ThrottleStudio\ActivityStream\Enums\FeedTypes $feedType
-     * @var int|null $pagination
+     * @var oneof \ThrottleStudio\ActivityStream\Enums\FeedTypes
+     * @var int|null
      */
     protected function getFeed(string $feedType, $pagination = null)
     {

@@ -27,14 +27,14 @@ class FeedUpdated
     public $activity;
 
     /**
-     * The feed type instance
+     * The feed type instance.
      *
      * @var string flat|timeline|notification
      */
     public $feedType;
 
     /**
-     * The event type instance
+     * The event type instance.
      *
      * @var string created|deleted
      */

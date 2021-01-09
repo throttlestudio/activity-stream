@@ -3,14 +3,14 @@
 namespace ThrottleStudio\ActivityStream\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use ThrottleStudio\ActivityStream\Enums\FeedEventTypes;
 use ThrottleStudio\ActivityStream\Enums\FeedTypes;
-use ThrottleStudio\ActivityStream\Models\Follow;
 use ThrottleStudio\ActivityStream\Events\TimelineUpdated;
+use ThrottleStudio\ActivityStream\Models\Follow;
 
 class AddActivityToFollowersTimeline implements ShouldQueue
 {
@@ -52,8 +52,7 @@ class AddActivityToFollowersTimeline implements ShouldQueue
         // Get followable feed item count based on config
         $feed = $followable->getFlatFeed(config('activity-stream.follow_feed_count'));
 
-        foreach($feed as $item)
-        {
+        foreach ($feed as $item) {
             $follower
                 ->feeds()
                 ->create([

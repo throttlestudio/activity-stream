@@ -3,8 +3,6 @@
 namespace ThrottleStudio\ActivityStream\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use ThrottleStudio\ActivityStream\Models\Feed;
-use ThrottleStudio\ActivityStream\Traits\HasFeeds;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class CustomFeed extends Model
@@ -12,7 +10,7 @@ class CustomFeed extends Model
     public $incrementing = false;
 
     /**
-     * Relationship collection of all items in flat feed
+     * Relationship collection of all items in flat feed.
      *
      * @return \ThrottleStudio\ActivityStream\Models\Feed
      */
@@ -22,9 +20,9 @@ class CustomFeed extends Model
     }
 
     /**
-     * Get the timeline for this custom feed
+     * Get the timeline for this custom feed.
      *
-     * @var int|null $pagination
+     * @var int|null
      *
      * @return \Illuminate\Database\Eloquent\Collection;
      */

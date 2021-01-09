@@ -3,13 +3,13 @@
 namespace ThrottleStudio\ActivityStream\Tests;
 
 use CreateActivityStreamTables;
-use ThrottleStudio\ActivityStream\Tests\Helpers\Models\User;
 use ThrottleStudio\ActivityStream\ActivityStreamServiceProvider;
 use ThrottleStudio\ActivityStream\Tests\Helpers\Models\Author;
 use ThrottleStudio\ActivityStream\Tests\Helpers\Models\Comment;
 use ThrottleStudio\ActivityStream\Tests\Helpers\Models\News;
 use ThrottleStudio\ActivityStream\Tests\Helpers\Models\Post;
 use ThrottleStudio\ActivityStream\Tests\Helpers\Models\Tweet;
+use ThrottleStudio\ActivityStream\Tests\Helpers\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -44,9 +44,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->loadMigrationsFrom(__DIR__ . '/Helpers/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Helpers/migrations');
 
-        include_once(__DIR__  . '/../database/migrations/create_activity_stream_tables.php');
+        include_once __DIR__.'/../database/migrations/create_activity_stream_tables.php';
 
         (new CreateActivityStreamTables())->up();
     }
@@ -65,7 +65,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return Post::create([
             'user_id' => $user->id,
-            'body' => 'some message'
+            'body' => 'some message',
         ]);
     }
 
@@ -73,7 +73,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return News::create([
             'user_id' => $author->id,
-            'body' => 'some message'
+            'body' => 'some message',
         ]);
     }
 
@@ -82,7 +82,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         return Comment::create([
             'user_id' => $user->id,
             'post_id' => $post->id,
-            'body' => 'some message'
+            'body' => 'some message',
         ]);
     }
 
@@ -90,7 +90,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return Tweet::create([
             'user_id' => $user->id,
-            'body' => 'some message'
+            'body' => 'some message',
         ]);
     }
 

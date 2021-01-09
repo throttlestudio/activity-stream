@@ -2,18 +2,18 @@
 
 namespace ThrottleStudio\ActivityStream\Jobs;
 
-use Log;
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use ThrottleStudio\ActivityStream\Models\Feed;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Log;
+use ThrottleStudio\ActivityStream\Enums\FeedEventTypes;
 use ThrottleStudio\ActivityStream\Enums\FeedTypes;
+use ThrottleStudio\ActivityStream\Events\FeedUpdated;
 use ThrottleStudio\ActivityStream\Models\Activity;
 use ThrottleStudio\ActivityStream\Models\CustomFeed;
-use ThrottleStudio\ActivityStream\Events\FeedUpdated;
-use ThrottleStudio\ActivityStream\Enums\FeedEventTypes;
+use ThrottleStudio\ActivityStream\Models\Feed;
 
 class RemoveActivityFromCustomFeeds implements ShouldQueue
 {
@@ -61,26 +61,21 @@ class RemoveActivityFromCustomFeeds implements ShouldQueue
         $feeds = $this->feeds;
 
         // Loop through each custom feed
-        foreach($feeds as $feedClass)
-        {
-            if (!class_exists($feedClass))
-            {
+        foreach ($feeds as $feedClass) {
+            if (! class_exists($feedClass)) {
                 Log::info("Class {$feedClass} doesn't exist");
             }
 
-            if (class_exists($feedClass))
-            {
+            if (class_exists($feedClass)) {
                 // Create class instance
                 $feed = new $feedClass();
 
                 // Check instance
-                if (!$feed instanceof CustomFeed)
-                {
+                if (! $feed instanceof CustomFeed) {
                     Log::info("Class {$feedClass} not instance of CustomFeed");
                 }
 
-                if ($feed instanceof CustomFeed)
-                {
+                if ($feed instanceof CustomFeed) {
                     Feed::where([
                         'owner_id' => $feed->id,
                         'owner_type' => $feed->getMorphClass(),
@@ -90,7 +85,6 @@ class RemoveActivityFromCustomFeeds implements ShouldQueue
 
                     event(new FeedUpdated($feed, $activity, FeedTypes::NOTIFICATION, FeedEventTypes::CREATED));
                 }
-
             }
         }
     }

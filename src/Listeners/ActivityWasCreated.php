@@ -5,9 +5,9 @@ namespace ThrottleStudio\ActivityStream\Listeners;
 use Illuminate\Database\Eloquent\Model;
 use ThrottleStudio\ActivityStream\Enums\FeedTypes;
 use ThrottleStudio\ActivityStream\Events\ActivityCreated;
-use ThrottleStudio\ActivityStream\Jobs\AddActivityToFeed;
-use ThrottleStudio\ActivityStream\Jobs\AddActivityToCustomFeeds;
 use ThrottleStudio\ActivityStream\Jobs\AddActivityToAllFollowers;
+use ThrottleStudio\ActivityStream\Jobs\AddActivityToCustomFeeds;
+use ThrottleStudio\ActivityStream\Jobs\AddActivityToFeed;
 
 class ActivityWasCreated
 {
@@ -16,31 +16,25 @@ class ActivityWasCreated
         $activity = $event->activity;
         $object = $activity->object;
 
-        if ($object->addToFlatFeed())
-        {
+        if ($object->addToFlatFeed()) {
             dispatch(new AddActivityToFeed($activity, FeedTypes::FLAT));
         }
 
-        if ($object->addToTimeline())
-        {
+        if ($object->addToTimeline()) {
             dispatch(new AddActivityToFeed($activity, FeedTypes::TIMELINE));
         }
 
-        if ($notifiable = $object->getNotify())
-        {
-            if ($notifiable instanceof Model)
-            {
+        if ($notifiable = $object->getNotify()) {
+            if ($notifiable instanceof Model) {
                 dispatch(new AddActivityToFeed($activity, FeedTypes::NOTIFICATION, $notifiable));
             }
         }
 
-        if (sizeof($feeds = $object->addToCustomFeeds()) > 0)
-        {
+        if (sizeof($feeds = $object->addToCustomFeeds()) > 0) {
             dispatch(new AddActivityToCustomFeeds($activity, $feeds));
         }
 
-        if ($activity->verb != config('activity-stream.follow_verb'))
-        {
+        if ($activity->verb != config('activity-stream.follow_verb')) {
             dispatch(new AddActivityToAllFollowers($activity));
         }
     }

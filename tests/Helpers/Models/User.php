@@ -12,6 +12,6 @@ class User extends Model
     use HasFeeds;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

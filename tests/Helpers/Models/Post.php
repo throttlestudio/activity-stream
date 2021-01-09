@@ -12,7 +12,7 @@ class Post extends Model implements StreamActivity
 
     protected $fillable = [
         'user_id',
-        'body'
+        'body',
     ];
 
     public function getVerb(): string

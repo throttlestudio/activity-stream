@@ -13,7 +13,7 @@ class Comment extends Model implements StreamActivity
     protected $fillable = [
         'user_id',
         'post_id',
-        'body'
+        'body',
     ];
 
     public function addToFlatFeed()

@@ -12,6 +12,6 @@ class Author extends Model
     use HasFeeds;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 }
