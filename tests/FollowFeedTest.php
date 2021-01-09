@@ -2,7 +2,6 @@
 
 namespace ThrottleStudio\ActivityStream\Tests;
 
-use ThrottleStudio\ActivityStream\Tests\TestCase;
 use ThrottleStudio\ActivityStream\Enums\FeedTypes;
 use ThrottleStudio\ActivityStream\Models\Activity;
 use ThrottleStudio\ActivityStream\Models\Feed;

@@ -3,16 +3,14 @@
 namespace ThrottleStudio\ActivityStream\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use ThrottleStudio\ActivityStream\Models\Follow;
-use ThrottleStudio\ActivityStream\Models\Activity;
-use ThrottleStudio\ActivityStream\Events\FeedUpdated;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use ThrottleStudio\ActivityStream\Enums\FeedEventTypes;
 use ThrottleStudio\ActivityStream\Enums\FeedTypes;
-use ThrottleStudio\ActivityStream\Events\TimelineUpdated;
+use ThrottleStudio\ActivityStream\Events\FeedUpdated;
+use ThrottleStudio\ActivityStream\Models\Activity;
 use ThrottleStudio\ActivityStream\Models\Feed;
 
 class RemoveActivityFromAllFollowers implements ShouldQueue
@@ -52,16 +50,14 @@ class RemoveActivityFromAllFollowers implements ShouldQueue
         $object = $activity->object;
         $actor = $object->getFeedOwner();
 
-        if (method_exists($actor, 'followers'))
-        {
+        if (method_exists($actor, 'followers')) {
             $followers = $actor->followers()->get();
 
             Feed::where('type', FeedTypes::TIMELINE)
                 ->where('activity_id', $activity->id)
                 ->delete();
 
-            foreach($followers as $follower)
-            {
+            foreach ($followers as $follower) {
                 event(new FeedUpdated($follower, $activity, FeedTypes::TIMELINE, FeedEventTypes::DELETED));
             }
         }

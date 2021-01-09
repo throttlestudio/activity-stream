@@ -80,7 +80,7 @@ class Follow extends Model implements StreamActivity
     }
 
     /**
-     * Model belongs to a follower
+     * Model belongs to a follower.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
@@ -90,7 +90,7 @@ class Follow extends Model implements StreamActivity
     }
 
     /**
-     * Model belongs to a Followable model
+     * Model belongs to a Followable model.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */

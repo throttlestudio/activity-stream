@@ -7,8 +7,8 @@ use ThrottleStudio\ActivityStream\Events\ActivityCreated;
 use ThrottleStudio\ActivityStream\Events\ActivityDeleting;
 use ThrottleStudio\ActivityStream\Events\FollowCreated;
 use ThrottleStudio\ActivityStream\Events\FollowDeleting;
-use ThrottleStudio\ActivityStream\Listeners\ActivityWasCreated;
 use ThrottleStudio\ActivityStream\Listeners\ActivityIsDeleting;
+use ThrottleStudio\ActivityStream\Listeners\ActivityWasCreated;
 use ThrottleStudio\ActivityStream\Listeners\FollowIsDeleting;
 use ThrottleStudio\ActivityStream\Listeners\FollowWasCreated;
 
@@ -26,7 +26,7 @@ class ActivityStreamEventServiceProvider extends ServiceProvider
         ],
         FollowDeleting::class => [
             FollowIsDeleting::class,
-        ]
+        ],
     ];
 
     /**

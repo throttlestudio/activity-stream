@@ -13,7 +13,7 @@ class CreateActivityStreamTables extends Migration
      */
     public function up()
     {
-        Schema::create(config('activity-stream.tables.activities'), function(Blueprint $table) {
+        Schema::create(config('activity-stream.tables.activities'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('verb');
             $table->morphs('actor');
@@ -23,7 +23,7 @@ class CreateActivityStreamTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create(config('activity-stream.tables.feeds'), function(Blueprint $table) {
+        Schema::create(config('activity-stream.tables.feeds'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('activity_id')->index();
             $table->morphs('owner');
@@ -34,7 +34,7 @@ class CreateActivityStreamTables extends Migration
             $table->unique(['owner_id', 'owner_type', 'activity_id', 'type']);
         });
 
-        Schema::create(config('activity-stream.tables.follows'), function(Blueprint $table) {
+        Schema::create(config('activity-stream.tables.follows'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->morphs('follower');
             $table->morphs('followable');

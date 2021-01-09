@@ -26,7 +26,7 @@ class ActivityStreamServiceProvider extends ServiceProvider
 
             // Registering package commands.
             $this->commands([
-                FeedMakeCommand::class
+                FeedMakeCommand::class,
             ]);
         }
     }

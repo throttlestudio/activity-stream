@@ -19,7 +19,7 @@ class TimelineUpdated
     public $model;
 
     /**
-     * The event type instance
+     * The event type instance.
      *
      * @var string created|deleted
      */

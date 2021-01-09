@@ -13,33 +13,33 @@ class CreateTestTables extends Migration
      */
     public function up()
     {
-        Schema::create('users', function(Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
 
-        Schema::create('authors', function(Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
 
-        Schema::create('posts', function(Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->string('body');
             $table->timestamps();
         });
 
-        Schema::create('news', function(Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->string('body');
             $table->timestamps();
         });
 
-        Schema::create('comments', function(Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('post_id')->index();
             $table->unsignedBigInteger('user_id')->index();
@@ -47,7 +47,7 @@ class CreateTestTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('tweets', function(Blueprint $table) {
+        Schema::create('tweets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->string('body');

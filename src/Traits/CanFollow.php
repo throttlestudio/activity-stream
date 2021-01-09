@@ -8,7 +8,7 @@ use ThrottleStudio\ActivityStream\Models\Follow;
 trait CanFollow
 {
     /**
-     * Entity follows another entity
+     * Entity follows another entity.
      *
      * @var \Illumiate\Database\Eloquent\Model
      *
@@ -18,12 +18,12 @@ trait CanFollow
     {
         return $this->follows()->create([
             'followable_id' => $model->getKey(),
-            'followable_type' => $model->getMorphClass()
+            'followable_type' => $model->getMorphClass(),
         ]);
     }
 
     /**
-     * Entity unfollows another entity
+     * Entity unfollows another entity.
      *
      * @var \Illumiate\Database\Eloquent\Model
      *
@@ -36,14 +36,13 @@ trait CanFollow
             ->where('followable_type', $model->getMorphClass())
             ->first();
 
-        if ($follow)
-        {
+        if ($follow) {
             $follow->delete();
         }
     }
 
     /**
-     * Entity unfollows another entity
+     * Entity unfollows another entity.
      *
      * @var \Illumiate\Database\Eloquent\Model
      *
@@ -53,6 +52,7 @@ trait CanFollow
     {
         if ($this->isFollowing($model)) {
             $this->unfollow($model);
+
             return;
         }
 
@@ -60,7 +60,7 @@ trait CanFollow
     }
 
     /**
-     * Check if entity is following another entity
+     * Check if entity is following another entity.
      *
      * @var \Illumiate\Database\Eloquent\Model
      *
@@ -68,14 +68,14 @@ trait CanFollow
      */
     public function isFollowing(Model $model)
     {
-        return !!$this->follows()
+        return (bool) $this->follows()
             ->where('followable_id', $model->getKey())
             ->where('followable_type', $model->getMorphClass())
             ->count();
     }
 
     /**
-     * Get count of follows
+     * Get count of follows.
      */
     public function getFollowingCountAttribute()
     {
@@ -83,7 +83,7 @@ trait CanFollow
     }
 
     /**
-     * Get all entities you are following
+     * Get all entities you are following.
      */
     public function follows()
     {

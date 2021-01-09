@@ -2,28 +2,28 @@
 
 namespace ThrottleStudio\ActivityStream\Traits;
 
-use ThrottleStudio\ActivityStream\Models\Activity;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use ThrottleStudio\ActivityStream\Models\Activity;
 
 trait LogsStreamActivity
 {
     /**
-     * Listen for various events on this model
+     * Listen for various events on this model.
      *
      * @return void
      */
     public static function bootLogsStreamActivity()
     {
-        static::created(function($model) {
+        static::created(function ($model) {
             $model->createActivity();
         });
-        static::deleting(function($model) {
+        static::deleting(function ($model) {
             $model->deleteActivity();
         });
     }
 
     /**
-     * Should this activity be added to owners flat feed
+     * Should this activity be added to owners flat feed.
      *
      * @return bool
      */
@@ -33,7 +33,7 @@ trait LogsStreamActivity
     }
 
     /**
-     * Should this activity be added to owners timeline
+     * Should this activity be added to owners timeline.
      *
      * @return bool
      */
@@ -43,7 +43,7 @@ trait LogsStreamActivity
     }
 
     /**
-     * Should this activity be added to any custom feeds
+     * Should this activity be added to any custom feeds.
      *
      * @return array
      */
@@ -53,7 +53,7 @@ trait LogsStreamActivity
     }
 
     /**
-     * Get the target reference for this model
+     * Get the target reference for this model.
      *
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|null
      */
@@ -63,7 +63,7 @@ trait LogsStreamActivity
     }
 
     /**
-     * Get the notification reference for this model
+     * Get the notification reference for this model.
      *
      * @return \Illuminate\Database\Eloquent\Model|null
      */
@@ -73,7 +73,7 @@ trait LogsStreamActivity
     }
 
     /**
-     * This model belongs to one activity
+     * This model belongs to one activity.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
@@ -83,7 +83,7 @@ trait LogsStreamActivity
     }
 
     /**
-     * Create a new Stream Activity
+     * Create a new Stream Activity.
      */
     protected function createActivity()
     {
@@ -103,8 +103,7 @@ trait LogsStreamActivity
         $activity->object_type = $object->getMorphClass();
 
         // Set the target
-        if ($target = $this->getTarget())
-        {
+        if ($target = $this->getTarget()) {
             $activity->target_id = $target->id;
             $activity->target_type = $target->getMorphClass();
         }
@@ -118,7 +117,7 @@ trait LogsStreamActivity
     }
 
     /**
-     * Delete the created Stream Activity
+     * Delete the created Stream Activity.
      */
     protected function deleteActivity()
     {

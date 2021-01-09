@@ -45,7 +45,7 @@ class Activity extends Model
      * @var array
      */
     protected $with = [
-        'actor', 'object', 'target'
+        'actor', 'object', 'target',
     ];
 
     /**
@@ -59,7 +59,7 @@ class Activity extends Model
     }
 
     /**
-     * Model belongs to an actor
+     * Model belongs to an actor.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
@@ -69,7 +69,7 @@ class Activity extends Model
     }
 
     /**
-     * Model belongs to an object
+     * Model belongs to an object.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
@@ -79,7 +79,7 @@ class Activity extends Model
     }
 
     /**
-     * Model belongs to target
+     * Model belongs to target.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo|null
      */

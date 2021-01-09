@@ -3,7 +3,6 @@
 namespace ThrottleStudio\ActivityStream\Tests;
 
 use ThrottleStudio\ActivityStream\Models\Feed;
-use ThrottleStudio\ActivityStream\Tests\TestCase;
 use ThrottleStudio\ActivityStream\Tests\Helpers\Feeds\TrendingFeed;
 
 class CustomFeedTest extends TestCase

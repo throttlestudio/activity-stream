@@ -31,7 +31,7 @@ class Feed extends Model
      * @var array
      */
     protected $with = [
-        'activity'
+        'activity',
     ];
 
     /**
@@ -45,7 +45,7 @@ class Feed extends Model
     }
 
     /**
-     * Get the isOwner reference
+     * Get the isOwner reference.
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -55,7 +55,7 @@ class Feed extends Model
     }
 
     /**
-     * Get the actor reference
+     * Get the actor reference.
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -65,7 +65,7 @@ class Feed extends Model
     }
 
     /**
-     * Get the object reference
+     * Get the object reference.
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -75,7 +75,7 @@ class Feed extends Model
     }
 
     /**
-     * Get the target reference
+     * Get the target reference.
      *
      * @return \Illuminate\Database\Eloquent\Model|null
      */
@@ -85,7 +85,7 @@ class Feed extends Model
     }
 
     /**
-     * Feed has many activities
+     * Feed has many activities.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -95,7 +95,7 @@ class Feed extends Model
     }
 
     /**
-     * Feed model belongs to an activity
+     * Feed model belongs to an activity.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

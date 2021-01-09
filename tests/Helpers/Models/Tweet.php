@@ -4,8 +4,8 @@ namespace ThrottleStudio\ActivityStream\Tests\Helpers\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use ThrottleStudio\ActivityStream\Contracts\StreamActivity;
-use ThrottleStudio\ActivityStream\Traits\LogsStreamActivity;
 use ThrottleStudio\ActivityStream\Tests\Helpers\Feeds\TrendingFeed;
+use ThrottleStudio\ActivityStream\Traits\LogsStreamActivity;
 
 class Tweet extends Model implements StreamActivity
 {
@@ -13,7 +13,7 @@ class Tweet extends Model implements StreamActivity
 
     protected $fillable = [
         'user_id',
-        'body'
+        'body',
     ];
 
     public function getVerb(): string
