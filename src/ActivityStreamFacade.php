@@ -1,13 +1,13 @@
 <?php
 
-namespace ThrottleStudio\LaravelActivityStream;
+namespace ThrottleStudio\ActivityStream;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \ThrottleStudio\LaravelActivityStream\Skeleton\SkeletonClass
+ * @see \ThrottleStudio\ActivityStream\Skeleton\SkeletonClass
  */
-class LaravelActivityStreamFacade extends Facade
+class ActivityStreamFacade extends Facade
 {
     /**
      * Get the registered name of the component.

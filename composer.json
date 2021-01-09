@@ -1,9 +1,10 @@
 {
     "name": "throttlestudio/activity-stream",
-    "description": "Activity stream for Laravel applications",
+    "description": "Activity Stream for Laravel applications",
     "keywords": [
-        "throttle-studio",
         "throttlestudio",
+        "throttle.studio",
+        "activity-stream",
         "laravel-activity-stream",
         "laravel",
         "activity stream",
@@ -24,7 +25,8 @@
     ],
     "require": {
         "php": "^7.1",
-        "illuminate/support": "^6.0|^7.0|^8.0"
+        "illuminate/support": "^6|^7|^8",
+        "myclabs/php-enum": "^1.7"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",
@@ -32,16 +34,17 @@
     },
     "autoload": {
         "psr-4": {
-            "ThrottleStudio\\LaravelActivityStream\\": "src"
+            "ThrottleStudio\\ActivityStream\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ThrottleStudio\\LaravelActivityStream\\Tests\\": "tests"
+            "ThrottleStudio\\ActivityStream\\Tests\\": "tests"
         }
     },
     "scripts": {
         "test": "vendor/bin/phpunit tests",
+        "test-filter": "vendor/bin/phpunit tests --filter=",
         "test-coverage": "vendor/bin/phpunit tests --coverage-html coverage"
 
     },
@@ -51,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ThrottleStudio\\LaravelActivityStream\\LaravelActivityStreamServiceProvider"
+                "ThrottleStudio\\ActivityStream\\ActivityStreamServiceProvider"
             ],
             "aliases": {
-                "LaravelActivityStream": "ThrottleStudio\\LaravelActivityStream\\LaravelActivityStreamFacade"
+                "ActivityStream": "ThrottleStudio\\ActivityStream\\ActivityStreamFacade"
             }
         }
     }

@@ -8,7 +8,7 @@
 
 ![Activity Stream for Laravel](https://dev.getactivitystream.com/activity-stream-logo-color.svg)
 
-Activity stream package for Laravel applications. We support Flat, Timeline, Notification and global Feeds. This will also include the ability to follow Entities. Once an entity is followed or unfollowed activities will be added/removed from timelines. Visit[getactivitystream.com](https://getactivitystream.com) for more information and documentation.
+Activity stream package for Laravel applications. We support Flat, Timeline, Notification and global Feeds. This will also include the ability to follow Entities. Once an entity is followed or unfollowed activities will be added/removed from timelines. Visit [getactivitystream.com](https://getactivitystream.com) for more information and documentation.
 
 ## Installation
 
@@ -20,7 +20,7 @@ composer require throttlestudio/activity-stream
 
 ## Usage
 
-Read the full documentation at **[getactivitystream.com](https://getactivitystream.com)**
+### Read the full documentation at **[getactivitystream.com](https://getactivitystream.com)**
 
 ### Testing
 
@@ -32,13 +32,13 @@ composer test
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## Contributing
+### Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email sicsol@streetconcepts.com instead of using the issue tracker.
+If you discover any security related issues, please email info@throttle.studio instead of using the issue tracker.
 
 ## Credits
 
