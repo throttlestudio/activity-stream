@@ -48,9 +48,9 @@ class PopulateActivitiesCommand extends Command
     {
         $model = $this->getNameInput();
 
-        if (!class_exists($model))
-        {
+        if (! class_exists($model)) {
             $this->error('The class "'.$model.'" doesn\'t exist.');
+
             return;
         }
 
@@ -68,8 +68,7 @@ class PopulateActivitiesCommand extends Command
         $results = $class->get();
 
         // Create an activity for each model
-        foreach($results as $result)
-        {
+        foreach ($results as $result) {
             dispatch(new CreateActivity(($result)));
         }
 
