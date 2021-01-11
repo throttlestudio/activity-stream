@@ -46,7 +46,7 @@ class FeedMakeCommand extends GeneratorCommand
      */
     protected function rootNamespace()
     {
-        return $this->laravel->getNamespace() . 'Feeds';
+        return $this->laravel->getNamespace().'Feeds';
     }
 
     /**
