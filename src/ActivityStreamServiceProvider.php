@@ -3,7 +3,8 @@
 namespace ThrottleStudio\ActivityStream;
 
 use Illuminate\Support\ServiceProvider;
-use ThrottleStudio\ActivityStream\Console\Commands\FeedMakeCommand;
+use ThrottleStudio\ActivityStream\Console\Commands\MakeCustomFeedCommand;
+use ThrottleStudio\ActivityStream\Console\Commands\PopulateActivitiesCommand;
 
 class ActivityStreamServiceProvider extends ServiceProvider
 {
@@ -26,7 +27,8 @@ class ActivityStreamServiceProvider extends ServiceProvider
 
             // Registering package commands.
             $this->commands([
-                FeedMakeCommand::class,
+                MakeCustomFeedCommand::class,
+                PopulateActivitiesCommand::class
             ]);
         }
     }

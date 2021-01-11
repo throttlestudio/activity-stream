@@ -6,14 +6,14 @@ use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
-class FeedMakeCommand extends GeneratorCommand
+class MakeCustomFeedCommand extends GeneratorCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'stream:feed';
+    protected $name = 'stream:custom-feed';
 
     /**
      * The console command description.
@@ -69,7 +69,7 @@ class FeedMakeCommand extends GeneratorCommand
      */
     protected function getId()
     {
-        return $this->option('id') ?? Str::uuid();
+        return $this->option('id') ?? rand(1,100);
     }
 
     /**
