@@ -69,7 +69,7 @@ class MakeCustomFeedCommand extends GeneratorCommand
      */
     protected function getId()
     {
-        return $this->option('id') ?? rand(1,100);
+        return $this->option('id') ?? rand(1, 100);
     }
 
     /**
