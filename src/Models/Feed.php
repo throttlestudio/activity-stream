@@ -55,6 +55,16 @@ class Feed extends Model
     }
 
     /**
+     * Get the verb reference.
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getVerbAttribute()
+    {
+        return $this->activity->verb;
+    }
+
+    /**
      * Get the actor reference.
      *
      * @return \Illuminate\Database\Eloquent\Model

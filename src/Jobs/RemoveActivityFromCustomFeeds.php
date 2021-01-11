@@ -79,11 +79,11 @@ class RemoveActivityFromCustomFeeds implements ShouldQueue
                     Feed::where([
                         'owner_id' => $feed->id,
                         'owner_type' => $feed->getMorphClass(),
-                        'type' => FeedTypes::NOTIFICATION,
+                        'type' => FeedTypes::TIMELINE,
                         'activity_id' => $activity->id,
                     ])->delete();
 
-                    event(new FeedUpdated($feed, $activity, FeedTypes::NOTIFICATION, FeedEventTypes::CREATED));
+                    event(new FeedUpdated($feed, $activity, FeedTypes::TIMELINE, FeedEventTypes::CREATED));
                 }
             }
         }

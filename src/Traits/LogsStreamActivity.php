@@ -3,6 +3,7 @@
 namespace ThrottleStudio\ActivityStream\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use ThrottleStudio\ActivityStream\Jobs\CreateActivity;
 use ThrottleStudio\ActivityStream\Models\Activity;
 
 trait LogsStreamActivity
@@ -15,7 +16,7 @@ trait LogsStreamActivity
     public static function bootLogsStreamActivity()
     {
         static::created(function ($model) {
-            $model->createActivity();
+            dispatch(new CreateActivity($model));
         });
         static::deleting(function ($model) {
             $model->deleteActivity();
