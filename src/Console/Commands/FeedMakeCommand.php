@@ -13,7 +13,7 @@ class FeedMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'make:feed';
+    protected $name = 'stream:feed';
 
     /**
      * The console command description.
