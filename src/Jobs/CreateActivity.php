@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use ThrottleStudio\ActivityStream\Enums\FeedEventTypes;
-use ThrottleStudio\ActivityStream\Enums\FeedTypes;
-use ThrottleStudio\ActivityStream\Events\FeedUpdated;
 use ThrottleStudio\ActivityStream\Models\Activity;
-use ThrottleStudio\ActivityStream\Models\Feed;
 
 class CreateActivity
 {
