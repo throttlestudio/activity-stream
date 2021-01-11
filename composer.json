@@ -1,6 +1,6 @@
 {
     "name": "throttlestudio/activity-stream",
-    "description": "Activity Stream for Laravel applications",
+    "description": "Activity Stream for Laravel applications. Easily add Flat, Timeline, Custom and Notification feeds. Social network solution.",
     "keywords": [
         "throttlestudio",
         "throttle.studio",
@@ -11,7 +11,9 @@
         "newsfeed",
         "timeline",
         "notifications",
-        "follow"
+        "follow",
+        "social network",
+        "feeds"
     ],
     "homepage": "https://github.com/throttlestudio/activity-stream",
     "license": "MIT",
