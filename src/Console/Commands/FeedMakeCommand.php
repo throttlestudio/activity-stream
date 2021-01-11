@@ -13,7 +13,7 @@ class FeedMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'activitystream:feed';
+    protected $name = 'make:feed';
 
     /**
      * The console command description.
@@ -40,6 +40,16 @@ class FeedMakeCommand extends GeneratorCommand
     }
 
     /**
+     * Get the root namespace for the class.
+     *
+     * @return string
+     */
+    protected function rootNamespace()
+    {
+        return $this->laravel->getNamespace() . 'Feeds';
+    }
+
+    /**
      * Get the destination class path.
      *
      * @param  string  $name
@@ -47,7 +57,19 @@ class FeedMakeCommand extends GeneratorCommand
      */
     protected function getPath($name)
     {
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'.php';
+        $name = Str::replaceFirst($this->rootNamespace(), '', $name);
+
+        return $this->laravel['path'].'/Feeds'.str_replace('\\', '/', $name).'.php';
+    }
+
+    /**
+     * Get the id for the model.
+     *
+     * @return string
+     */
+    protected function getId()
+    {
+        return $this->option('id') ?? Str::uuid();
     }
 
     /**
@@ -60,8 +82,8 @@ class FeedMakeCommand extends GeneratorCommand
     protected function replaceNamespace(&$stub, $name)
     {
         $stub = str_replace(
-            ['DummyNamespace', 'DummyRootNamespace', 'NamespacedDummyUserModel', 'ID'],
-            [$this->getNamespace($name), $this->rootNamespace(), $this->userProviderModel(), Str::uuid()],
+            ['DummyNamespace', 'ID'],
+            [$this->getNamespace($name), $this->getId()],
             $stub
         );
 
@@ -76,7 +98,7 @@ class FeedMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['model', 'm', InputOption::VALUE_OPTIONAL, 'The name of the model'],
+            ['id', 'i', InputOption::VALUE_OPTIONAL, 'Set the ID for the model'],
         ];
     }
 }
