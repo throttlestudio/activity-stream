@@ -7,7 +7,7 @@ class CommandTest extends TestCase
     /** @test */
     public function create_custom_feed()
     {
-        $this->artisan('activitystream:feed TrendingFeed')
+        $this->artisan('make:feed TrendingFeed')
             ->assertExitCode(0);
     }
 }
