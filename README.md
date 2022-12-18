@@ -1,4 +1,4 @@
-# ***WIP Activity Stream for laravel
+# ***This package is no longer being maintained we decided to move to [GetStream.io](https://getstream.io)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/throttlestudio/activity-stream.svg?style=flat-square)](https://packagist.org/packages/throttlestudio/activity-stream)
 [![Build Status](https://img.shields.io/travis/throttlestudio/activity-stream/master.svg?style=flat-square)](https://travis-ci.com/throttlestudio/activity-stream)
